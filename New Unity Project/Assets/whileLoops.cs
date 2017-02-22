@@ -1,15 +1,17 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class whileLoops : MonoBehaviour {
-	public int bottles = 0;
-	public int maxBottles = 10;
+
+
+// I want the computer to guess the number 25.
 
 	private bool gameOn = true;
 
 	private int minVal = -10;
-	private int maxVal = 10;
-	private int randomNum;
+	private int maxVal = 100;
+	//The randomNum is assigned to 25
+	private int randomNum = 25;
 	private int counter = 0;
 
 	// Use this for initialization
@@ -18,51 +20,26 @@ public class whileLoops : MonoBehaviour {
 		while (true)
 		{
 			randomNum = Random.Range(minVal, maxVal);
-			if (randomNum > 0)
+			if (randomNum > 25)
 			{
 				maxVal = randomNum;
 			} 
-			else if (randomNum < 0) 
+			else if (randomNum < 25) 
 			{
 				minVal = randomNum;
 			}
 
 			counter++;
-			print ("Attempt " + counter + ": " + minVal + " - " + maxVal);
+			print ("Guess " + counter + ": " + minVal + " - " + maxVal);
 
-			if (maxVal == 1 && minVal == -1) 
+			/* 25 is between 24 and 26. If the computer guesses this range,
+			then the loop will break. */
+			if (maxVal == 26 && minVal == 24) 
 			{
 				break;
 			}
 		}
 
-
-
-
-
-
-
-//		while (gameOn == true) 
-//		{
-//			print (bottles + " bottles of root beer on the wall.");
-//			bottles++;
-//			if (bottles == maxBottles)
-//			{
-//				break;
-//			}
-//		}
-
-
-
-
-
-//		while(bottles < 20)
-//		{ 
-//			print(bottles + " bottles of root beer on the wall.");
-//			bottles = bottles + 2;
-//		}
-//		print ("All done!");
-//	
 	}
 
 }
