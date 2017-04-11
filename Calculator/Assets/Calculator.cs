@@ -1,34 +1,64 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
-using System;
 using System.Collections.Generic;
+
+
 
 public class Calculator : MonoBehaviour {
 
-	public InputField input1;
-	public InputField input2;
+	public InputField field1;
+	public InputField field2;
 	public Text result;
+
 
 
 
 	void Start () {
 
-		AddNumbers ();
-	
-
 	}
 
-	public void AddNumbers()
+	public void Add()
 	{
-		int numInput;
+		int sum;
 
-		numInput = int.Parse(input1.text) + int.Parse(input2.text);
+		sum = System.Int32.Parse(field1.text) + System.Int32.Parse(field2.text);
 
-		result.text = numInput.ToString();
-		
-	}
+		result.text = sum.ToString();
 	
+	}
+
+	public void Sub()
+	{
+		int diff;
+
+		diff = System.Int32.Parse(field1.text) - System.Int32.Parse(field2.text);
+
+		result.text = diff.ToString();
+
+	}
+
+	public void Mult()
+	{
+		int product;
+
+		product = System.Int32.Parse(field1.text) * System.Int32.Parse(field2.text);
+
+		result.text = product.ToString();
+
+	}
+
+	public void Div()
+	{
+		int quotient;
+
+		quotient = System.Int32.Parse(field1.text) / System.Int32.Parse(field2.text);
+
+		result.text = quotient.ToString();
+
+	}
+
 
 
 }
