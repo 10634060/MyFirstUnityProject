@@ -17,7 +17,20 @@ public class Calculator : MonoBehaviour {
 
 	void Start () {
 
+		clearInputs ();
 	}
+
+
+	/*public int num1;
+	public int num2;
+
+	public void Hello(string name)
+	{
+		print ("Hello " + name + ", you're looking marvelous today.");
+		int result = num1 + num2;
+		print(string.Format("{0} + {1} = {2}", num1, num2, result));
+
+	}*/
 
 	public void Add()
 	{
@@ -59,6 +72,11 @@ public class Calculator : MonoBehaviour {
 
 	}
 
+	public void clearInputs()
+	{
+		field1.text = String.Empty;
+		field2.text = String.Empty;
+	}
 
 
 }
