@@ -5,8 +5,6 @@ using System.Collections;
 using System.Collections.Generic;
 
 
-
-
 public class Calculator : MonoBehaviour {
 
 	public InputField field1;
@@ -17,6 +15,7 @@ public class Calculator : MonoBehaviour {
 	//Target Number
 	int randNum;
 	public Text targetNum;
+
 
 
 	void Start () 
@@ -30,9 +29,15 @@ public class Calculator : MonoBehaviour {
 
 	}
 
+
 	void Update ()
 	{
+		if (result.text == targetNum.text)
+		{
+			targetNum.gameObject.SetActive (false);
+			result.color = Color.green;
 
+		} 
 	}
 		
 
@@ -41,7 +46,8 @@ public class Calculator : MonoBehaviour {
 		int sum;
 		sum = System.Int32.Parse(field1.text) + System.Int32.Parse(field2.text);
 		result.text = sum.ToString();
-	
+
+		gameObject.SetActive (false);
 	}
 
 	public void Sub()
@@ -49,6 +55,8 @@ public class Calculator : MonoBehaviour {
 		int diff;
 		diff = System.Int32.Parse(field1.text) - System.Int32.Parse(field2.text);
 		result.text = diff.ToString();
+
+		gameObject.SetActive (false);
 
 	}
 
@@ -58,6 +66,8 @@ public class Calculator : MonoBehaviour {
 		product = System.Int32.Parse(field1.text) * System.Int32.Parse(field2.text);
 		result.text = product.ToString();
 
+		gameObject.SetActive (false);
+
 	}
 
 	public void Div()
@@ -66,6 +76,8 @@ public class Calculator : MonoBehaviour {
 		quotient = System.Int32.Parse(field1.text) / System.Int32.Parse(field2.text);
 		result.text = quotient.ToString();
 
+		gameObject.SetActive (false);
+
 	}
 
 	public void clearInputs()
@@ -73,8 +85,6 @@ public class Calculator : MonoBehaviour {
 		field1.text = String.Empty;
 		field2.text = String.Empty;
 	}
-
-	
 
 
 }
