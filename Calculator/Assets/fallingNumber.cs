@@ -6,7 +6,7 @@ using System.Collections.Generic;
 public class fallingNumber : MonoBehaviour {
 
 
-	public float fallSpeed = 5.0f;
+	public float fallSpeed = 10.0f;
 	public Text result;
 
 	public Text targetNum;
@@ -16,23 +16,6 @@ public class fallingNumber : MonoBehaviour {
 		
 	}
 
-	void Update () 
-	{
-		while (result.text != targetNum.text) 
-		{
-			transform.Translate (Vector3.down * fallSpeed * Time.deltaTime, Space.World);
-		}
 
-	}
-
-	/*public void Destroy()
-	{
-		if (result.text == targetNum.text) {
-			Destroy (targetNum);
-		} 
-		else 
-		{
-			print ("You Fail.");
-		}
-	}*/
+		
 }
