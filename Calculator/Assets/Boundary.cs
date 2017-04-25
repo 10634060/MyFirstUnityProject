@@ -11,7 +11,8 @@ public class Boundary : MonoBehaviour {
 	void OnTriggerEnter (Collider targetNum)
 	{
 		print (targetNum);
-		targetNum.gameObject.SetActive(false);
+		//targetNum.gameObject.SetActive(false);
+		Destroy(targetNum.gameObject);
 
 	
 	}
