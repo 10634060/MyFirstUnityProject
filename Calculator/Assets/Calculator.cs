@@ -16,10 +16,15 @@ public class Calculator : MonoBehaviour {
 	int randNum;
 	public Text targetNum;
 	private Vector3 startPos;
+	GameObject[] oper;
+
+
 
 
 	void Start () 
 	{
+
+		oper = GameObject.FindGameObjectsWithTag ("Operation");
 
 		clearInputs ();
 
@@ -27,7 +32,6 @@ public class Calculator : MonoBehaviour {
 		startPos = transform.position;
 		randNum = UnityEngine.Random.Range (0, 101);
 		targetNum.text = randNum.ToString ();
-
 
 	}
 
@@ -37,13 +41,33 @@ public class Calculator : MonoBehaviour {
 
 		if (result.text == targetNum.text) 
 		{
-			GetComponent<Rigidbody>().position = startPos;
+			GetComponent<Rigidbody> ().position = startPos;
 			result.color = Color.green;
+
 			Reset ();
+
 		}
 
 	}
-		
+
+	//Button activation
+//	private void Button()
+//	{
+//		while (true)
+//		{
+//			foreach (GameObject op in oper) 
+//			{
+//				if (result.text == targetNum.text) 
+//				{
+//					gameObject.SetActive (false);
+//				} 
+//				else 
+//				{
+//					gameObject.SetActive (true);
+//				}
+//			}
+//		}
+//	}
 
 	public void Add()
 	{
@@ -53,7 +77,8 @@ public class Calculator : MonoBehaviour {
 		result.text = sum.ToString();
 
 		gameObject.SetActive (false);
-	
+
+		
 	}
 
 	public void Sub()
