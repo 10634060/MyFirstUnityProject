@@ -12,11 +12,13 @@ public class Calculator : MonoBehaviour {
 	public Text result;
 
 
+
+
 	//Target Number
 	int randNum;
 	public Text targetNum;
 	private Vector3 startPos;
-	GameObject[] oper;
+
 
 
 
@@ -24,14 +26,15 @@ public class Calculator : MonoBehaviour {
 	void Start () 
 	{
 
-		oper = GameObject.FindGameObjectsWithTag ("Operation");
-
 		clearInputs ();
 
 		//Target Number
 		startPos = transform.position;
 		randNum = UnityEngine.Random.Range (0, 101);
 		targetNum.text = randNum.ToString ();
+
+		buttonReset ();
+
 
 	}
 
@@ -47,27 +50,11 @@ public class Calculator : MonoBehaviour {
 			Reset ();
 
 		}
+						
 
 	}
 
-	//Button activation
-//	private void Button()
-//	{
-//		while (true)
-//		{
-//			foreach (GameObject op in oper) 
-//			{
-//				if (result.text == targetNum.text) 
-//				{
-//					gameObject.SetActive (false);
-//				} 
-//				else 
-//				{
-//					gameObject.SetActive (true);
-//				}
-//			}
-//		}
-//	}
+
 
 	public void Add()
 	{
@@ -76,9 +63,20 @@ public class Calculator : MonoBehaviour {
 		sum = System.Int32.Parse(field1.text) + System.Int32.Parse(field2.text);
 		result.text = sum.ToString();
 
-		gameObject.SetActive (false);
 
-		
+		if (result.text == targetNum.text) 
+		{
+			gameObject.SetActive (false);
+		} 
+		else 
+		{
+				gameObject.SetActive (true);
+				result.color = Color.red;
+		}
+
+		clearInputs ();
+
+
 	}
 
 	public void Sub()
@@ -87,8 +85,18 @@ public class Calculator : MonoBehaviour {
 		diff = System.Int32.Parse(field1.text) - System.Int32.Parse(field2.text);
 		result.text = diff.ToString();
 
-		gameObject.SetActive (false);
 
+		if (result.text == targetNum.text) 
+		{
+			gameObject.SetActive (false);
+		} 
+		else 
+		{
+			gameObject.SetActive (true);
+			result.color = Color.red;
+		}
+
+		clearInputs ();
 	}
 
 	public void Mult()
@@ -97,7 +105,19 @@ public class Calculator : MonoBehaviour {
 		product = System.Int32.Parse(field1.text) * System.Int32.Parse(field2.text);
 		result.text = product.ToString();
 
-		gameObject.SetActive (false);
+
+
+		if (result.text == targetNum.text) 
+		{
+			gameObject.SetActive (false);
+		} 
+		else 
+		{
+			gameObject.SetActive (true);
+			result.color = Color.red;
+		}
+
+		clearInputs ();
 
 	}
 
@@ -107,7 +127,18 @@ public class Calculator : MonoBehaviour {
 		quotient = System.Int32.Parse(field1.text) / System.Int32.Parse(field2.text);
 		result.text = quotient.ToString();
 
-		gameObject.SetActive (false);
+
+		if (result.text == targetNum.text) 
+		{
+			gameObject.SetActive (false);
+		} 
+		else 
+		{
+			gameObject.SetActive (true);
+			result.color = Color.red;
+		}
+
+		clearInputs ();
 
 	}
 
@@ -115,7 +146,14 @@ public class Calculator : MonoBehaviour {
 	{
 		field1.text = String.Empty;
 		field2.text = String.Empty;
+
 	}
+
+	public void buttonReset ()
+	{	
+		gameObject.SetActive (true);
+	}
+
 
 	void Reset ()
 	{
@@ -123,6 +161,8 @@ public class Calculator : MonoBehaviour {
 
 		randNum = UnityEngine.Random.Range (0, 101);
 		targetNum.text = randNum.ToString ();
-	}
 
+	}
+		
 }
+
