@@ -6,6 +6,8 @@ using System.Collections.Generic;
 
 public class Boundary : MonoBehaviour {
 
+
+	//YouLose
 	public Text loseText;
 
 
